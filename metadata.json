@@ -1,0 +1,6 @@
+{
+  "name": "Lumina Health Clinic - One-Page Healthcare Website",
+  "description": "A responsive single-page healthcare website featuring medical services, patient testimonials, an appointment booking enquiry form with client-side validation, and clinic contact information.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

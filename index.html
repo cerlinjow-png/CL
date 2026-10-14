@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina Health Clinic - Compassionate Care, Close to You</title>
+  <meta name="description" content="A modern, patient-first healthcare clinic providing comprehensive primary care, specialized cardiology, pediatrics, and diagnostic services. Book your appointment online today.">
+  <meta property="og:title" content="Lumina Health Clinic - Compassionate Care, Close to You">
+  <meta property="og:description" content="A modern, patient-first healthcare clinic providing comprehensive primary care, specialized cardiology, pediatrics, and diagnostic services.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CSS RESET & DESIGN TOKENS
+       ========================================================================== */
+    :root {
+      --color-primary: #0284c7;        /* Sky 600 - Calming medical blue */
+      --color-primary-dark: #0369a1;   /* Sky 700 */
+      --color-primary-light: #e0f2fe;  /* Sky 100 */
+      --color-teal: #0d9488;           /* Teal 600 - Refreshing health accent */
+      --color-teal-dark: #0f766e;      /* Teal 700 */
+      --color-teal-light: #ccfbf1;     /* Teal 100 */
+      --color-slate-900: #0f172a;      /* Headings text */
+      --color-slate-800: #1e293b;
+      --color-slate-700: #334155;
+      --color-slate-600: #475569;      /* Body copy */
+      --color-slate-500: #64748b;      /* Secondary text */
+      --color-slate-400: #94a3b8;
+      --color-slate-200: #e2e8f0;      /* Border */
+      --color-slate-100: #f1f5f9;      /* Subtle background */
+      --color-slate-50: #f8fafc;       /* Card/section background */
+      --color-white: #ffffff;
+      --color-amber-500: #f59e0b;      /* Star rating amber */
+      --color-danger: #dc2626;         /* Form error red */
+      --color-danger-light: #fef2f2;
+      --color-success: #16a34a;        /* Success green */
+      --color-success-light: #f0fdf4;
+      
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      --nav-height: 72px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-slate-700);
+      background-color: var(--color-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    /* Accessibility focus rings */
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    /* Section padding */
+    .section {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      scroll-margin-top: var(--nav-height);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3.5rem auto;
+    }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-teal);
+      background-color: var(--color-teal-light);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 0.85rem;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--color-slate-900);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--color-slate-600);
+      line-height: 1.6;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.45);
+    }
+
+    .btn-secondary {
+      background-color: var(--color-white);
+      color: var(--color-slate-800);
+      border-color: var(--color-slate-200);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--color-slate-50);
+      border-color: var(--color-slate-400);
+      color: var(--color-primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-teal {
+      background-color: var(--color-teal);
+      color: var(--color-white);
+      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3);
+    }
+
+    .btn-teal:hover {
+      background-color: var(--color-teal-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(13, 148, 136, 0.4);
+    }
+
+    /* ==========================================================================
+       STICKY NAVBAR
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-height);
+      background-color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--color-slate-200);
+      transition: box-shadow 0.25s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--color-slate-900);
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+    }
+
+    .brand-text span {
+      color: var(--color-teal);
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-slate-700);
+      transition: color 0.2s ease;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--color-primary);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-primary);
+      border-radius: 2px;
+    }
+
+    .nav-cta {
+      display: none;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-phone {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-slate-800);
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+
+    .nav-phone svg {
+      color: var(--color-teal);
+    }
+
+    /* Mobile Hamburger Menu Toggle */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 32px;
+      height: 32px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1010;
+    }
+
+    .menu-toggle span {
+      width: 100%;
+      height: 2.5px;
+      background-color: var(--color-slate-800);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Mobile Menu Drawer */
+    .mobile-menu {
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      width: 100%;
+      background-color: var(--color-white);
+      border-bottom: 1px solid var(--color-slate-200);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      display: none;
+      flex-direction: column;
+      gap: 1.25rem;
+      z-index: 999;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-nav-link {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--color-slate-800);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--color-slate-100);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      background: linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 45%, #f0fdfa 100%);
+      padding-top: 5rem;
+      padding-bottom: 4rem;
+      overflow: hidden;
+      border-bottom: 1px solid var(--color-slate-200);
+    }
+
+    /* Background medical subtle pattern */
+    .hero-bg-pattern {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      opacity: 0.45;
+      pointer-events: none;
+      background-image: radial-gradient(var(--color-primary-light) 2px, transparent 2px), radial-gradient(var(--color-teal-light) 2px, transparent 2px);
+      background-size: 36px 36px;
+      background-position: 0 0, 18px 18px;
+      mask-image: radial-gradient(circle at 70% 30%, black 10%, transparent 75%);
+      -webkit-mask-image: radial-gradient(circle at 70% 30%, black 10%, transparent 75%);
+    }
+
+    .hero-wrapper {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 620px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--color-white);
+      color: var(--color-teal-dark);
+      font-weight: 600;
+      font-size: 0.8125rem;
+      padding: 0.4rem 0.95rem;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(13, 148, 136, 0.2);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-pill-indicator {
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-teal);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.25);
+    }
+
+    .hero-headline {
+      font-size: 2.75rem;
+      line-height: 1.15;
+      font-weight: 800;
+      color: var(--color-slate-900);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.025em;
+    }
+
+    .hero-headline span {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subheading {
+      font-size: 1.125rem;
+      color: var(--color-slate-600);
+      line-height: 1.65;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-visual-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-xl);
+      border: 1px solid var(--color-slate-200);
+      position: relative;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--color-slate-100);
+    }
+
+    .doctor-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+    }
+
+    .doctor-info h4 {
+      font-size: 1.0625rem;
+      color: var(--color-slate-900);
+      font-weight: 700;
+    }
+
+    .doctor-info p {
+      font-size: 0.875rem;
+      color: var(--color-slate-500);
+    }
+
+    .clinic-stats-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat-mini-box {
+      background: var(--color-slate-50);
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-slate-100);
+    }
+
+    .stat-mini-number {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-mini-label {
+      font-size: 0.8125rem;
+      color: var(--color-slate-600);
+      line-height: 1.3;
+    }
+
+    /* Trust Indicators Strip */
+    .trust-strip {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      background-color: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(8px);
+      padding: 0.875rem 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .trust-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background-color: var(--color-primary-light);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .trust-text strong {
+      display: block;
+      font-size: 0.9375rem;
+      color: var(--color-slate-900);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .trust-text span {
+      font-size: 0.8125rem;
+      color: var(--color-slate-500);
+    }
+
+    /* ==========================================================================
+       SERVICES SECTION
+       ========================================================================== */
+    .services-section {
+      background-color: var(--color-white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .service-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-slate-200);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-primary-light);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .service-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-teal-light) 100%);
+      color: var(--color-primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      transition: transform 0.25s ease;
+    }
+
+    .service-card:hover .service-icon-wrap {
+      transform: scale(1.08);
+    }
+
+    .service-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-slate-900);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.9375rem;
+      color: var(--color-slate-600);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .service-feature {
+      font-size: 0.875rem;
+      color: var(--color-slate-700);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .service-feature svg {
+      color: var(--color-teal);
+      flex-shrink: 0;
+    }
+
+    .service-link {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: gap 0.2s ease;
+      cursor: pointer;
+    }
+
+    .service-link:hover {
+      color: var(--color-primary-dark);
+      gap: 0.6rem;
+    }
+
+    /* ==========================================================================
+       TESTIMONIALS SECTION
+       ========================================================================== */
+    .testimonials-section {
+      background-color: var(--color-slate-50);
+      border-top: 1px solid var(--color-slate-200);
+      border-bottom: 1px solid var(--color-slate-200);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .testimonial-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--color-slate-200);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(2, 132, 199, 0.3);
+    }
+
+    .rating-stars {
+      display: flex;
+      gap: 0.25rem;
+      color: var(--color-amber-500);
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-quote {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--color-slate-700);
+      margin-bottom: 1.75rem;
+      font-style: italic;
+    }
+
+    .patient-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-slate-100);
+    }
+
+    .patient-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: var(--color-white);
+      flex-shrink: 0;
+    }
+
+    .avatar-teal {
+      background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+    }
+
+    .avatar-blue {
+      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+    }
+
+    .avatar-indigo {
+      background: linear-gradient(135deg, #4f46e5 0%, #818cf8 100%);
+    }
+
+    .avatar-emerald {
+      background: linear-gradient(135deg, #059669 0%, #34d399 100%);
+    }
+
+    .patient-name {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--color-slate-900);
+    }
+
+    .patient-detail {
+      font-size: 0.8125rem;
+      color: var(--color-slate-500);
+    }
+
+    /* ==========================================================================
+       ENQUIRY FORM SECTION
+       ========================================================================== */
+    .enquiry-section {
+      background-color: var(--color-white);
+    }
+
+    .enquiry-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .enquiry-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      border: 1px solid var(--color-slate-200);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-group {
+      margin-bottom: 1.35rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-slate-800);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-label .required-indicator {
+      color: var(--color-danger);
+      margin-left: 0.2rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 0.9375rem;
+      color: var(--color-slate-900);
+      background-color: var(--color-white);
+      border: 1px solid var(--color-slate-300);
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+    }
+
+    .form-control::placeholder {
+      color: var(--color-slate-400);
+    }
+
+    .form-control:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.18);
+      outline: none;
+    }
+
+    .form-control.has-error {
+      border-color: var(--color-danger);
+      background-color: var(--color-danger-light);
+    }
+
+    .form-control.has-error:focus {
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+    }
+
+    .field-error-msg {
+      display: none;
+      font-size: 0.8125rem;
+      color: var(--color-danger);
+      margin-top: 0.35rem;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .field-error-msg.visible {
+      display: flex;
+    }
+
+    textarea.form-control {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* Form confirmation banner */
+    .form-confirmation {
+      display: none;
+      background-color: var(--color-success-light);
+      border: 1px solid #86efac;
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 1.75rem;
+      color: #14532d;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .form-confirmation.active {
+      display: block;
+    }
+
+    .confirmation-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--color-success);
+      margin-bottom: 0.5rem;
+    }
+
+    .confirmation-body {
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+
+    /* Contact sidebar info */
+    .contact-info-panel {
+      background-color: var(--color-slate-50);
+      border: 1px solid var(--color-slate-200);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+    }
+
+    .contact-info-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-slate-900);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info-desc {
+      font-size: 0.9375rem;
+      color: var(--color-slate-600);
+      margin-bottom: 2rem;
+      line-height: 1.55;
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-slate-200);
+    }
+
+    .info-content strong {
+      display: block;
+      font-size: 0.9375rem;
+      color: var(--color-slate-900);
+      margin-bottom: 0.15rem;
+    }
+
+    .info-content span, .info-content a {
+      font-size: 0.875rem;
+      color: var(--color-slate-600);
+      line-height: 1.4;
+    }
+
+    .info-content a:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    .emergency-notice {
+      margin-top: 2rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-md);
+      background-color: #fef2f2;
+      border: 1px solid #fecaca;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .emergency-notice svg {
+      color: var(--color-danger);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .emergency-notice p {
+      font-size: 0.8125rem;
+      color: #991b1b;
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--color-slate-900);
+      color: var(--color-slate-400);
+      padding-top: 4.5rem;
+      padding-bottom: 2.5rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-brand h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-brand h3 span {
+      color: var(--color-teal);
+    }
+
+    .footer-tagline {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      max-width: 320px;
+    }
+
+    .footer-heading {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-white);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-link {
+      font-size: 0.9375rem;
+      color: var(--color-slate-400);
+      transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--color-white);
+      padding-left: 2px;
+    }
+
+    .footer-contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      font-size: 0.9375rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .footer-contact-item svg {
+      color: var(--color-primary);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background-color: #1e293b;
+      color: var(--color-slate-300);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .social-btn:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid #1e293b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.875rem;
+      color: var(--color-slate-500);
+      text-align: center;
+    }
+
+    /* Subtle scroll animation */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS (Desktop & Tablet enhancements)
+       ========================================================================== */
+    @media (min-width: 640px) {
+      .hero-headline {
+        font-size: 3.25rem;
+      }
+      .form-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .trust-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+      .nav-cta {
+        display: flex;
+      }
+      .menu-toggle {
+        display: none;
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1.5fr;
+      }
+      .footer-bottom {
+        flex-direction: row;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-wrapper {
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .testimonials-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .enquiry-wrapper {
+        grid-template-columns: 1.4fr 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      .fade-in-section {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .btn, .service-card, .testimonial-card, .social-btn {
+        transition: none !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER / STICKY NAVBAR
+       ========================================================================== -->
+  <header class="navbar" id="mainNavbar">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Lumina Health Clinic Homepage">
+        <div class="logo-icon" aria-hidden="true">
+          <!-- Medical Cross Icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 6v12M6 12h12" />
+          </svg>
+        </div>
+        <div class="brand-text">Lumina<span>Health</span></div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#services" class="nav-link">Our Services</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="#enquiry" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Desktop Right CTA -->
+      <div class="nav-cta">
+        <a href="tel:5550192834" class="nav-phone" title="Call Lumina Health Clinic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>(555) 019-2834</span>
+        </a>
+        <a href="#enquiry" class="btn btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.875rem;">Book Appointment</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation">
+      <a href="#hero" class="mobile-nav-link">Home</a>
+      <a href="#services" class="mobile-nav-link">Our Services</a>
+      <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
+      <a href="#enquiry" class="mobile-nav-link">Contact & Book</a>
+      <a href="#enquiry" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Book an Appointment</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ==========================================================================
+         1. HERO SECTION
+         ========================================================================== -->
+    <section class="hero-section section" id="hero">
+      <div class="hero-bg-pattern" aria-hidden="true"></div>
+      
+      <div class="container hero-wrapper">
+        <div class="hero-content fade-in-section">
+          <div class="hero-pill">
+            <span class="hero-pill-indicator"></span>
+            <span>Accredited Modern Healthcare Center</span>
+          </div>
+
+          <h1 class="hero-headline">
+            Compassionate Care, <span>Close to You</span>
+          </h1>
+
+          <p class="hero-subheading">
+            From comprehensive family medicine to state-of-the-art diagnostic care, our board-certified physicians provide personalized, dignified healthcare tailored to every stage of your life.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#enquiry" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Book an Appointment</span>
+            </a>
+            <a href="#services" class="btn btn-secondary">
+              <span>Our Services</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Visual Clinic Card -->
+        <div class="hero-visual-card fade-in-section">
+          <div class="hero-card-header">
+            <div class="doctor-avatar" aria-label="Dr. Bennett avatar">DR</div>
+            <div class="doctor-info">
+              <h4>Dr. David Bennett, MD</h4>
+              <p>Medical Director & Lead Physician</p>
+            </div>
+          </div>
+          
+          <div class="clinic-stats-mini">
+            <div class="stat-mini-box">
+              <div class="stat-mini-number">15+ Yrs</div>
+              <div class="stat-mini-label">Clinical Excellence & Primary Care</div>
+            </div>
+            <div class="stat-mini-box">
+              <div class="stat-mini-number">Same-Day</div>
+              <div class="stat-mini-label">Acute Visits & Telehealth Options</div>
+            </div>
+            <div class="stat-mini-box">
+              <div class="stat-mini-number">&lt; 15 min</div>
+              <div class="stat-mini-label">Average On-Time Consultation Start</div>
+            </div>
+            <div class="stat-mini-box">
+              <div class="stat-mini-number">Top Rated</div>
+              <div class="stat-mini-label">Regional Healthcare Quality Award</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Indicators Strip -->
+      <div class="container trust-strip">
+        <div class="trust-grid">
+          <div class="trust-item fade-in-section">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <strong>24/7 Support</strong>
+              <span>Always-on on-call staff</span>
+            </div>
+          </div>
+
+          <div class="trust-item fade-in-section">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <strong>Certified Doctors</strong>
+              <span>Board-certified team</span>
+            </div>
+          </div>
+
+          <div class="trust-item fade-in-section">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <strong>15,000+ Patients</strong>
+              <span>Families cared for locally</span>
+            </div>
+          </div>
+
+          <div class="trust-item fade-in-section">
+            <div class="trust-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <strong>4.9/5 Rating</strong>
+              <span>99.4% Patient satisfaction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SERVICES SECTION (Accessible via "Our Services" Hero CTA)
+         ========================================================================== -->
+    <section class="services-section section" id="services">
+      <div class="container">
+        <div class="section-header fade-in-section">
+          <div class="section-badge">Comprehensive Clinical Care</div>
+          <h2 class="section-title">Our Medical Services</h2>
+          <p class="section-subtitle">
+            Personalized treatment plans and modern outpatient healthcare services designed around comfort, convenience, and evidence-based medicine.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <article class="service-card fade-in-section">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Primary & Preventive Care</h3>
+            <p class="service-desc">
+              Holistic annual physicals, chronic disease prevention, immunizations, and proactive lifestyle wellness guidance.
+            </p>
+            <ul class="service-features">
+              <li class="service-feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Annual wellness exams
+              </li>
+              <li class="service-feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Vaccinations & immunizations
+              </li>
+            </ul>
+            <a href="#enquiry" class="service-link">
+              <span>Schedule Checkup</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="service-card fade-in-section">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Cardiology & Heart Health</h3>
+            <p class="service-desc">
+              Advanced cardiovascular assessments, resting & stress ECGs, blood pressure monitoring, and tailored lipid management.
+            </p>
+            <ul class="service-features">
+              <li class="service-feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                12-Lead Electrocardiograms (ECG)
+              </li>
+              <li class="service-feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Hypertension & cholesterol control
+              </li>
+            </ul>
+            <a href="#enquiry" class="service-link">
+              <span>Cardio Consultation</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="service-card fade-in-section">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+              </svg>
+            </div>
+            <h3 class="service-title">Pediatric Care</h3>
+            <p class="service-desc">
+              Gentle, nurturing care for newborns, children, and teenagers, including growth milestones and school sports physicals.
+            </p>
+            <ul class="service-features">
+              <li class="service-feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Well-child checks & milestones
+              </li>
+              <li class="service-feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Pediatric immunization schedules
+              </li>
+            </ul>
+            <a href="#enquiry" class="service-link">
+              <span>Book Pediatrician</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </article>
+
+          <!-- Service 4 -->
+          <article class="service-card fade-in-section">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 2v7.31"></path>
+                <path d="M14 9.3V2"></path>
+                <path d="M8.5 2h7"></path>
+                <path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path>
+                <path d="M5.52 16h12.96"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">On-Site Diagnostic Labs</h3>
+            <p class="service-desc">
+              Fast, accurate on-premise bloodwork, metabolic panels, allergy testing, and digital radiology with secure online results.
+            </p>
+            <ul class="service-features">
+              <li class="service-feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Rapid 24-hr turnaround for lab tests
+              </li>
+              <li class="service-feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Digital low-dose X-ray imaging
+              </li>
+            </ul>
+            <a href="#enquiry" class="service-link">
+              <span>Order Lab Work</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </article>
+
+          <!-- Service 5 -->
+          <article class="service-card fade-in-section">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="7"></circle>
+                <polyline points="12 9 12 12 13.5 13.5"></polyline>
+                <path d="M16.51 17.35l-.35 3.83a2 2 0 0 1-2 1.82H9.83a2 2 0 0 1-2-1.82l-.35-3.83m.01-10.7l.35-3.83A2 2 0 0 1 9.83 1h4.34a2 2 0 0 1 2 1.82l.35 3.83"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Telehealth & Remote Care</h3>
+            <p class="service-desc">
+              Secure HD video appointments for prescription refills, follow-ups, minor illnesses, and continuous medical support.
+            </p>
+            <ul class="service-features">
+              <li class="service-feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                HIPAA-compliant video consults
+              </li>
+              <li class="service-feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Direct e-prescriptions to your pharmacy
+              </li>
+            </ul>
+            <a href="#enquiry" class="service-link">
+              <span>Start Virtual Visit</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </article>
+
+          <!-- Service 6 -->
+          <article class="service-card fade-in-section">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Women's Health & Wellness</h3>
+            <p class="service-desc">
+              Dedicated gynecological consultations, bone density screenings, reproductive health counseling, and wellness screenings.
+            </p>
+            <ul class="service-features">
+              <li class="service-feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Routine well-woman exams
+              </li>
+              <li class="service-feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Hormonal & preventive diagnostics
+              </li>
+            </ul>
+            <a href="#enquiry" class="service-link">
+              <span>Book Appointment</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         2. TESTIMONIALS SECTION
+         ========================================================================== -->
+    <section class="testimonials-section section" id="testimonials">
+      <div class="container">
+        <div class="section-header fade-in-section">
+          <div class="section-badge">Patient Stories</div>
+          <h2 class="section-title">What Our Patients Say</h2>
+          <p class="section-subtitle">
+            Authentic experiences from individuals and families who rely on Lumina Health for attentive, trustworthy medical care.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <article class="testimonial-card fade-in-section">
+            <div>
+              <div class="rating-stars" aria-label="5 out of 5 stars">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;Dr. Bennett listened to all my concerns without ever checking his watch. The clinic is spotless, booking was effortless, and the follow-up phone call gave me complete confidence in my care.&rdquo;
+              </blockquote>
+            </div>
+            <div class="patient-profile">
+              <div class="patient-avatar avatar-teal" aria-hidden="true">SJ</div>
+              <div>
+                <div class="patient-name">Sarah Jenkins</div>
+                <div class="patient-detail">Patient since 2021 &bull; Primary Care</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 2 -->
+          <article class="testimonial-card fade-in-section">
+            <div>
+              <div class="rating-stars" aria-label="5 out of 5 stars">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;Outstanding cardiology department. They caught an irregular heartbeat during an annual routine checkup and explained every step with calmness. Truly exceptional professionalism.&rdquo;
+              </blockquote>
+            </div>
+            <div class="patient-profile">
+              <div class="patient-avatar avatar-blue" aria-hidden="true">MV</div>
+              <div>
+                <div class="patient-name">Marcus Vance</div>
+                <div class="patient-detail">Patient since 2022 &bull; Cardiology</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 3 -->
+          <article class="testimonial-card fade-in-section">
+            <div>
+              <div class="rating-stars" aria-label="5 out of 5 stars">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;As a mom of two young kids, pediatric visits used to be stressful. The nurses here are warm and friendly, and we were called right on time. We won't go anywhere else.&rdquo;
+              </blockquote>
+            </div>
+            <div class="patient-profile">
+              <div class="patient-avatar avatar-indigo" aria-hidden="true">ER</div>
+              <div>
+                <div class="patient-name">Elena Rostova</div>
+                <div class="patient-detail">Mother of 2 &bull; Pediatrics</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 4 -->
+          <article class="testimonial-card fade-in-section">
+            <div>
+              <div class="rating-stars" aria-label="5 out of 5 stars">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <blockquote class="testimonial-quote">
+                &ldquo;Booking was straightforward, blood test results came through securely within 24 hours, and the doctor gave practical advice that has helped lower my blood pressure significantly.&rdquo;
+              </blockquote>
+            </div>
+            <div class="patient-profile">
+              <div class="patient-avatar avatar-emerald" aria-hidden="true">DC</div>
+              <div>
+                <div class="patient-name">David Chen</div>
+                <div class="patient-detail">Patient since 2023 &bull; Preventive Health</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         3. ENQUIRY FORM SECTION
+         ========================================================================== -->
+    <section class="enquiry-section section" id="enquiry">
+      <div class="container">
+        <div class="section-header fade-in-section">
+          <div class="section-badge">Fast & Easy Scheduling</div>
+          <h2 class="section-title">Request an Appointment</h2>
+          <p class="section-subtitle">
+            Fill in the details below and our patient coordination team will confirm your consultation time and answer any questions.
+          </p>
+        </div>
+
+        <div class="enquiry-wrapper">
+          <!-- Main Form Card -->
+          <div class="enquiry-card fade-in-section">
+            
+            <!-- Inline Success Confirmation Banner -->
+            <div class="form-confirmation" id="formConfirmation" role="status" aria-live="polite">
+              <div class="confirmation-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>Appointment Request Received!</span>
+              </div>
+              <p class="confirmation-body" id="confirmationMessage">
+                Thank you! We'll contact you shortly to confirm your consultation schedule.
+              </p>
+            </div>
+
+            <!-- Appointment Form -->
+            <form id="appointmentForm" novalidate>
+              <div class="form-row">
+                <!-- Full Name -->
+                <div class="form-group">
+                  <label for="fullName" class="form-label">
+                    Full Name <span class="required-indicator">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    class="form-control"
+                    placeholder="e.g. Eleanor Vance"
+                    required
+                    autocomplete="name"
+                    aria-describedby="fullNameError"
+                  >
+                  <div class="field-error-msg" id="fullNameError" role="alert">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <span>Please enter your full name (minimum 2 characters).</span>
+                  </div>
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group">
+                  <label for="email" class="form-label">
+                    Email Address <span class="required-indicator">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="e.g. eleanor@example.com"
+                    required
+                    autocomplete="email"
+                    aria-describedby="emailError"
+                  >
+                  <div class="field-error-msg" id="emailError" role="alert">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <span>Please enter a valid email address (e.g. name@domain.com).</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <!-- Phone Number -->
+                <div class="form-group">
+                  <label for="phone" class="form-label">
+                    Phone Number <span class="required-indicator">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="form-control"
+                    placeholder="e.g. (555) 234-5678"
+                    required
+                    autocomplete="tel"
+                    aria-describedby="phoneError"
+                  >
+                  <div class="field-error-msg" id="phoneError" role="alert">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <span>Please enter a valid phone number (at least 10 digits).</span>
+                  </div>
+                </div>
+
+                <!-- Preferred Date -->
+                <div class="form-group">
+                  <label for="preferredDate" class="form-label">
+                    Preferred Date <span class="required-indicator">*</span>
+                  </label>
+                  <input
+                    type="date"
+                    id="preferredDate"
+                    name="preferredDate"
+                    class="form-control"
+                    required
+                    aria-describedby="dateError"
+                  >
+                  <div class="field-error-msg" id="dateError" role="alert">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <span>Please select a valid upcoming consultation date.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Service Department Selection -->
+              <div class="form-group">
+                <label for="department" class="form-label">Medical Department / Reason</label>
+                <select id="department" name="department" class="form-control">
+                  <option value="General Consultation">General Consultation / Primary Care</option>
+                  <option value="Cardiology">Cardiology & Heart Health</option>
+                  <option value="Pediatrics">Pediatrics & Family Medicine</option>
+                  <option value="Diagnostic Labs">Diagnostic Labs & Imaging</option>
+                  <option value="Womens Health">Women's Health & Wellness</option>
+                  <option value="Telehealth">Telehealth Virtual Consultation</option>
+                </select>
+              </div>
+
+              <!-- Message / Reason for visit -->
+              <div class="form-group">
+                <label for="message" class="form-label">Message / Specific Symptoms (Optional)</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-control"
+                  placeholder="Share any specific symptoms, medications, or scheduling preferences..."
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; padding: 0.95rem; font-size: 1rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <span>Submit Appointment Request</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Information & Clinic Hours Sidebar -->
+          <aside class="contact-info-panel fade-in-section">
+            <h3 class="contact-info-title">Clinic Hours & Location</h3>
+            <p class="contact-info-desc">
+              We welcome scheduled appointments and walk-in priority consultations. Convenient on-site parking is available.
+            </p>
+
+            <ul class="info-list">
+              <li class="info-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <strong>Consultation Hours</strong>
+                  <span>Mon – Fri: 8:00 AM – 7:00 PM<br>Saturday: 9:00 AM – 4:00 PM<br>Sunday: Urgent Care On-Call</span>
+                </div>
+              </li>
+
+              <li class="info-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <strong>Clinic Location</strong>
+                  <span>1042 Wellness Boulevard, Suite 300<br>Medical Center Plaza, Metro City, CA 90210</span>
+                </div>
+              </li>
+
+              <li class="info-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <strong>Direct Line</strong>
+                  <a href="tel:5550192834">(555) 019-2834</a>
+                </div>
+              </li>
+
+              <li class="info-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <strong>Clinical Inquiries</strong>
+                  <a href="mailto:care@luminahealth.com">care@luminahealth.com</a>
+                </div>
+              </li>
+            </ul>
+
+            <div class="emergency-notice">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <p>
+                <strong>Immediate Emergency:</strong> If you are experiencing chest pain, severe shortness of breath, or a life-threatening crisis, please dial <strong>911</strong> immediately.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       4. FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Summary -->
+        <div class="footer-brand">
+          <h3>
+            <div class="logo-icon" style="width: 32px; height: 32px; border-radius: 8px;" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M12 6v12M6 12h12" />
+              </svg>
+            </div>
+            Lumina<span>Health</span>
+          </h3>
+          <p class="footer-tagline">
+            Dedicated to accessible, high-quality, and patient-centered healthcare for individuals and families across our local community.
+          </p>
+          <div class="social-links" aria-label="Social media links">
+            <!-- Twitter/X -->
+            <a href="#" class="social-btn" aria-label="Visit Lumina Health on Twitter/X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="#" class="social-btn" aria-label="Visit Lumina Health on Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="#" class="social-btn" aria-label="Visit Lumina Health on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="#" class="social-btn" aria-label="Visit Lumina Health on Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#hero" class="footer-link">Home Overview</a></li>
+            <li><a href="#services" class="footer-link">Our Medical Services</a></li>
+            <li><a href="#testimonials" class="footer-link">Patient Testimonials</a></li>
+            <li><a href="#enquiry" class="footer-link">Request Appointment</a></li>
+            <li><a href="#enquiry" class="footer-link">Clinic Contact & Hours</a></li>
+          </ul>
+        </div>
+
+        <!-- Clinic Address & Direct Contact -->
+        <div>
+          <h4 class="footer-heading">Clinic Contact</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>1042 Wellness Boulevard, Suite 300, Metro City, CA 90210</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>Phone: (555) 019-2834</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>Email: care@luminahealth.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright & Auto-filled year via JavaScript -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2026</span> Lumina Health Clinic. All rights reserved.</p>
+        <p>Private & confidential medical practice. HIPAA-compliant patient communication.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       VANILLA JAVASCRIPT
+       ========================================================================== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // 1. Auto-fill current year in footer copyright line
+      const currentYearEl = document.getElementById('current-year');
+      if (currentYearEl) {
+        currentYearEl.textContent = new Date().getFullYear();
+      }
+
+      // 2. Set minimum date for appointment booking to today's date
+      const dateInput = document.getElementById('preferredDate');
+      if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+      }
+
+      // 3. Sticky Navbar shadow toggle on scroll
+      const navbar = document.getElementById('mainNavbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 20) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }, { passive: true });
+
+      // 4. Mobile Menu Toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function() {
+          const isOpen = mobileMenu.classList.toggle('open');
+          menuToggle.classList.toggle('open');
+          menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // Close mobile menu when clicking any nav link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(function(link) {
+          link.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            menuToggle.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // 5. Active Navbar Link Highlight based on scroll position
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      function updateActiveNavLink() {
+        const scrollY = window.pageYOffset + 120;
+        sections.forEach(function(current) {
+          const sectionHeight = current.offsetHeight;
+          const sectionTop = current.offsetTop;
+          const sectionId = current.getAttribute('id');
+
+          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinks.forEach(function(link) {
+              if (link.getAttribute('href') === '#' + sectionId) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }
+      window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+
+      // 6. Subtle Scroll Fade-In using IntersectionObserver
+      if ('IntersectionObserver' in window) {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px 0px -40px 0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver(function(entries, obs) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback for older browsers
+        document.querySelectorAll('.fade-in-section').forEach(function(el) {
+          el.classList.add('is-visible');
+        });
+      }
+
+      // 7. Form Field Validation and Submit Handler
+      const form = document.getElementById('appointmentForm');
+      const fullNameInput = document.getElementById('fullName');
+      const emailInput = document.getElementById('email');
+      const phoneInput = document.getElementById('phone');
+      const dateEl = document.getElementById('preferredDate');
+      const departmentEl = document.getElementById('department');
+      const messageEl = document.getElementById('message');
+      const confirmationBanner = document.getElementById('formConfirmation');
+      const confirmationMsg = document.getElementById('confirmationMessage');
+
+      // Validation Helper Functions
+      function validateName(val) {
+        return val.trim().length >= 2;
+      }
+
+      function validateEmail(val) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(val.trim());
+      }
+
+      function validatePhone(val) {
+        // Must contain at least 10 digits
+        const digits = val.replace(/\D/g, '');
+        return digits.length >= 10;
+      }
+
+      function validateDate(val) {
+        if (!val) return false;
+        const selected = new Date(val);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return selected >= today;
+      }
+
+      function setFieldError(inputEl, errorElId, hasError) {
+        const errorEl = document.getElementById(errorElId);
+        if (hasError) {
+          inputEl.classList.add('has-error');
+          inputEl.setAttribute('aria-invalid', 'true');
+          if (errorEl) errorEl.classList.add('visible');
+        } else {
+          inputEl.classList.remove('has-error');
+          inputEl.removeAttribute('aria-invalid');
+          if (errorEl) errorEl.classList.remove('visible');
+        }
+      }
+
+      // Real-time inline field validation on blur & input
+      if (fullNameInput) {
+        fullNameInput.addEventListener('blur', function() {
+          setFieldError(fullNameInput, 'fullNameError', !validateName(fullNameInput.value));
+        });
+        fullNameInput.addEventListener('input', function() {
+          if (fullNameInput.classList.contains('has-error')) {
+            setFieldError(fullNameInput, 'fullNameError', !validateName(fullNameInput.value));
+          }
+        });
+      }
+
+      if (emailInput) {
+        emailInput.addEventListener('blur', function() {
+          setFieldError(emailInput, 'emailError', !validateEmail(emailInput.value));
+        });
+        emailInput.addEventListener('input', function() {
+          if (emailInput.classList.contains('has-error')) {
+            setFieldError(emailInput, 'emailError', !validateEmail(emailInput.value));
+          }
+        });
+      }
+
+      if (phoneInput) {
+        phoneInput.addEventListener('blur', function() {
+          setFieldError(phoneInput, 'phoneError', !validatePhone(phoneInput.value));
+        });
+        phoneInput.addEventListener('input', function() {
+          if (phoneInput.classList.contains('has-error')) {
+            setFieldError(phoneInput, 'phoneError', !validatePhone(phoneInput.value));
+          }
+        });
+      }
+
+      if (dateEl) {
+        dateEl.addEventListener('blur', function() {
+          setFieldError(dateEl, 'dateError', !validateDate(dateEl.value));
+        });
+        dateEl.addEventListener('change', function() {
+          if (dateEl.classList.contains('has-error')) {
+            setFieldError(dateEl, 'dateError', !validateDate(dateEl.value));
+          }
+        });
+      }
+
+      // Handle Appointment Form Submission
+      if (form) {
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+
+          const isNameValid = validateName(fullNameInput.value);
+          const isEmailValid = validateEmail(emailInput.value);
+          const isPhoneValid = validatePhone(phoneInput.value);
+          const isDateValid = validateDate(dateEl.value);
+
+          setFieldError(fullNameInput, 'fullNameError', !isNameValid);
+          setFieldError(emailInput, 'emailError', !isEmailValid);
+          setFieldError(phoneInput, 'phoneError', !isPhoneValid);
+          setFieldError(dateEl, 'dateError', !isDateValid);
+
+          if (!isNameValid || !isEmailValid || !isPhoneValid || !isDateValid) {
+            // Focus the first invalid field for accessibility
+            if (!isNameValid) fullNameInput.focus();
+            else if (!isEmailValid) emailInput.focus();
+            else if (!isPhoneValid) phoneInput.focus();
+            else if (!isDateValid) dateEl.focus();
+            return;
+          }
+
+          // Build appointment payload data object
+          const appointmentData = {
+            fullName: fullNameInput.value.trim(),
+            email: emailInput.value.trim(),
+            phone: phoneInput.value.trim(),
+            preferredDate: dateEl.value,
+            department: departmentEl.value,
+            message: messageEl ? messageEl.value.trim() : '',
+            submittedAt: new Date().toISOString()
+          };
+
+          // ===================================================================
+          // REAL BACKEND API ENDPOINT SPOT
+          // Replace this block with your actual server POST request when connecting
+          // to an appointment booking API, CRM, or backend database:
+          //
+          // Example:
+          // fetch('/api/appointments', {
+          //   method: 'POST',
+          //   headers: { 'Content-Type': 'application/json' },
+          //   body: JSON.stringify(appointmentData)
+          // })
+          // .then(response => {
+          //   if (!response.ok) throw new Error('Network response failed');
+          //   return response.json();
+          // })
+          // .then(data => {
+          //   console.log('Server response:', data);
+          // })
+          // .catch(error => {
+          //   console.error('Submission error:', error);
+          // });
+          // ===================================================================
+
+          console.log('[Lumina Health] New Appointment Request Received:', appointmentData);
+
+          // Update inline confirmation message with patient name and preferred date
+          if (confirmationMsg) {
+            confirmationMsg.innerHTML = `Thank you, <strong>${escapeHtml(appointmentData.fullName)}</strong>! We've received your request for <strong>${escapeHtml(appointmentData.department)}</strong> on <strong>${escapeHtml(appointmentData.preferredDate)}</strong>. Our team will contact you shortly at <strong>${escapeHtml(appointmentData.phone)}</strong> to confirm.`;
+          }
+
+          // Display confirmation banner
+          if (confirmationBanner) {
+            confirmationBanner.classList.add('active');
+            confirmationBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+
+          // Reset the form inputs
+          form.reset();
+
+          // Reset any validation classes
+          setFieldError(fullNameInput, 'fullNameError', false);
+          setFieldError(emailInput, 'emailError', false);
+          setFieldError(phoneInput, 'phoneError', false);
+          setFieldError(dateEl, 'dateError', false);
+        });
+      }
+
+      // Security helper to escape HTML characters in dynamic text
+      function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+    })();
+  </script>
+</body>
+</html>
